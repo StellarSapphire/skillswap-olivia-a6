@@ -54,7 +54,7 @@ describe('matchSkillsToUser', () => {
         { title: 'Physics', category: 'Science', price: 30 },
     ];
 
-    test('matches skills to user preferences', () => {
+    test('matches Science skills to within budget', () => {
         const userSkills = { category: 'Science', maxPrice: 30 };
         const result = matchSkillsToUser(userSkills, skills);
         expect(result).toEqual([
@@ -63,11 +63,23 @@ describe('matchSkillsToUser', () => {
         ]);
     });
 
-    test('matches skills to user preferences', () => {
+    test('matches Math skills to within budget', () => {
         const userSkills = { category: 'Math', maxPrice: 25 };
         const result = matchSkillsToUser(userSkills, skills);
         expect(result).toEqual([
             { title: 'Algebra', category: 'Math', price: 20 }
+        ]);
+    });
+
+    test('includes free skills', () => {
+        const freeSkills = [
+            ...skills,
+            { title: 'Resume Review', category: 'Career', price: 0 }
+        ];
+        const userSkills = { category: 'Career', maxPrice: 0 };
+        const result = matchSkillsToUser(userSkills, freeSkills);
+        expect(result).toEqual([
+            { title: 'Resume Review', category: 'Career', price: 0 }
         ]);
     });
 

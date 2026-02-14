@@ -124,3 +124,46 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('total-cost').textContent = `Total Cost: $${total.toFixed(2)}`;
     });
 });
+
+function matchSkillsToUser(userSkills, skills) {
+    return skills.filter(skill =>
+        skill.category.toLowerCase() === userSkills.category.toLowerCase() && skill.price <= userSkills.maxPrice
+    );
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const matchButton = document.getElementById('match-btn');
+
+    matchButton.addEventListener('click', function() {
+        const category = document.getElementById('user-category').value.trim().toLowerCase();
+        const maxPrice = parseFloat(document.getElementById('user-max-price').value);
+        const container = document.getElementById('matched-skills-container');
+
+        if (isNaN(maxPrice) || maxPrice < 0) {
+            container.textContent = 'Please enter a valid non-negative number for max price.';
+            return;
+        }
+
+        const userSkills = { category, maxPrice };
+        const matchedSkills = matchSkillsToUser(userSkills, allSkills);
+        container.innerHTML = '';
+
+        if (matchedSkills.length === 0) {
+            container.textContent = 'No matching skills found.';
+            return;
+        }
+
+        matchedSkills.forEach(skill => {
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.innerHTML = `
+                <h2>${skill.title}</h2>
+                <p class="category">${skill.category}</p>
+                <p class="price">$${skill.price}</p>
+                <p class="provider">Provider: ${skill.provider}</p>
+                <p class="description">${skill.description}</p>
+            `;
+            container.appendChild(card);
+        });
+    });
+});

@@ -146,7 +146,48 @@ nav a:hover {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
+#cost-calculator input {
+  padding: 8px;
+  margin: 5px 0 10px 0;
+  width: 62%;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
 .result-box {
+  min-height: 36px;
+  margin-top: 15px;
+  margin-left: 125px;
+  margin-right: 125px;
+  padding: 5px;
+  background-color: #ffffff;
+  color: #1e2a38;
+  font-weight: bold;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#user-needs {
+  max-width: 500px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #f0c040;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+#user-needs input {
+  padding: 8px;
+  margin: 5px 0 10px 0;
+  width: 80%;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.matched-skills-container {
   min-height: 36px;
   margin-top: 15px;
   margin-left: 125px;
