@@ -1,5 +1,4 @@
-const { describe } = require('yargs');
-const { filterSkillsByCategory, calculateTotalCosts } = require('../skillswap-functions');
+const { filterSkillsByCategory, calculateTotalCosts, matchSkillsToUser } = require('../skillswap-functions');
 
 describe('filterSkillsByCategory', () => {
     const skills = [
