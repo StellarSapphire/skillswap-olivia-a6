@@ -32,8 +32,13 @@
         </div>
         <div class="hero" id="homehero"></div>
         <h4>Available Skills</h4>
-        <div class="card-container">
-            <div class="card">
+        <div id="filter-buttons">
+            <button class="filter-btn" data-category="All">All</button>
+            <button class="filter-btn" data-category="Math">Math</button>
+            <button class="filter-btn" data-category="Science">Science</button>
+        </div>
+        <div class="card-container" id="skills-container">
+            <!-- <div class="card">
                 <h2>Biology</h2>
                 <p>Learn about cellular processes, genetics, ecosystems, and much more!</p>
                 <p>Price: $25/hour</p>
@@ -50,7 +55,18 @@
                 <p>Learn about mechanics, thermodynamics, electromagnetism, and much more!</p>
                 <p>Price: $30/hour</p>
                 <p>Tutor: Chelsie Brown</p>
-            </div>
+            </div> -->
+        </div>
+        <div id="cost-calculator">
+            <h4>Calculate Total Cost</h4>
+            <label for="hours-input">Hours:</label>
+            <input type="number" id="hours-input" placeholder="Enter hours" />
+            <br />
+            <label for="rate-input">Hourly Rate:</label>
+            <input type="number" id="rate-input" placeholder="Enter hourly rate" />
+            
+            <button id="calculate-btn">Calculate</button>
+            <p id="total-cost" class="result-box"></p>
         </div>
     </main>
     <footer>
